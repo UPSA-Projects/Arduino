@@ -87,13 +87,13 @@ void loop() {
           if (command == "data=0")
           {
             // Cerrar
-            myservo.write(1);
+            myservo.write(60);
             delay(1000);
             Serial.println("Cerrar Puerta...");
           }
           if (command == "data=1")
           {
-            myservo.write(150);
+            myservo.write(170);
             delay(1000);
             Serial.println("Abriendo Puerta...");
           }
