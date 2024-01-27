@@ -44,21 +44,12 @@ void setup() {
   Serial.print("server is at ");
   Serial.println(Ethernet.localIP());
 
-
-  // Definir pin como salida
-  pinMode(6 , OUTPUT);
-
   myservo.attach(9);  // attaches the servo on pin 9 to the servo object
 
 }
 
 
 void loop() {
-  Serial.println("Comenanzo Prueba LED");
-  digitalWrite(6 , HIGH);   // poner el Pin en HIGH
-  delay(1000);                   // esperar un segundo
-  digitalWrite(6 , LOW);    // poner el Pin en LOW
-  delay(1000);                   // esperar un segundo
 
   //listen for incoming clients
   EthernetClient client = server.available();
@@ -96,6 +87,14 @@ void loop() {
             myservo.write(170);
             delay(1000);
             Serial.println("Abriendo Puerta...");
+          }
+          if (command == "data=3") {
+            myservo.write(170);
+            delay(1000);
+            Serial.println("Abriendo Puerta...");
+            myservo.write(60);
+            delay(1000);
+            Serial.println("Cerrar Puerta...");
           }
         }
 
